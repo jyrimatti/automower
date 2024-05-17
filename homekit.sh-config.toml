@@ -1,0 +1,113 @@
+[[services]]
+type = "AccessoryInformation"
+
+[services.characteristics]
+Identify = {} # leave property completely out 'cos otherwise Homekit won't accept
+Manufacturer = "Jyri-Matti Lähteenmäki"
+Model = "Husqvarna"
+Name = "Automower 430X"
+SerialNumber = "AA:AA:AA:AA:AA:16"
+FirmwareRevision = "100.1.1"
+
+
+[[services]]
+type = "BatteryService"
+
+[services.characteristics]
+Name = "Akku"
+[services.characteristics.BatteryLevel]
+cmd = "cd automower; ./cmd/battery.sh"
+[services.characteristics.ChargingState]
+cmd = "cd automower; ./cmd/charging.sh"
+[services.characteristics.StatusLowBattery]
+cmd = "cd automower; ./cmd/low_battery.sh"
+
+
+[[services]]
+type = "Switch"
+
+[services.characteristics]
+Name = "Leikkaa"
+ConfiguredName = "Leikkaa"
+[services.characteristics.On]
+cmd = "cd automower; ./cmd/mow.sh"
+
+
+[[services]]
+type = "Switch"
+
+[services.characteristics]
+Name = "Pysäköi kotiin"
+ConfiguredName = "Pysäköi kotiin"
+[services.characteristics.On]
+cmd = "cd automower; ./cmd/park.sh ''"
+
+
+[[services]]
+type = "Switch"
+
+[services.characteristics]
+Name = "Pysäköi tunniksi"
+ConfiguredName = "Pysäköi tunniksi"
+[services.characteristics.On]
+cmd = "cd automower; ./cmd/park.sh 60"
+
+
+[[services]]
+type = "Switch"
+
+[services.characteristics]
+Name = "Pysäköi 3 tunniksi"
+ConfiguredName = "Pysäköi 3 tunniksi"
+[services.characteristics.On]
+cmd = "cd automower; ./cmd/park.sh 180"
+
+
+[[services]]
+type = "Switch"
+
+[services.characteristics]
+Name = "Virhe"
+ConfiguredName = "Virhe"
+[services.characteristics.On]
+cmd = "cd automower; ./cmd/error.sh"
+
+
+[[services]]
+type = "Switch"
+
+[services.characteristics]
+Name = "Lataamassa"
+ConfiguredName = "Lataamassa"
+[services.characteristics.On]
+cmd = "cd automower; ./cmd/charging.sh"
+
+
+[[services]]
+type = "Switch"
+
+[services.characteristics]
+Name = "Menossa kotiin"
+ConfiguredName = "Menossa kotiin"
+[services.characteristics.On]
+cmd = "cd automower; ./cmd/going_home.sh"
+
+
+[[services]]
+type = "Switch"
+
+[services.characteristics]
+Name = "Lähdössä kotoa"
+ConfiguredName = "Lähdössä kotoa"
+[services.characteristics.On]
+cmd = "cd automower; ./cmd/leaving.sh"
+
+
+[[services]]
+type = "Switch"
+
+[services.characteristics]
+Name = "Pysähtynyt"
+ConfiguredName = "Pysähtynyt"
+[services.characteristics.On]
+cmd = "cd automower; ./cmd/stopped.sh"
