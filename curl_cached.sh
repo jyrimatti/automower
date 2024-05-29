@@ -1,5 +1,5 @@
 #! /usr/bin/env nix-shell
-#! nix-shell --pure --keep CURL_CACHED_MINUTES --keep XDG_RUNTIME_DIR -i dash -I channel:nixos-23.11-small -p dash cacert curl flock
+#! nix-shell --pure --keep LD_LIBRARY_PATH --keep CURL_CACHED_MINUTES --keep XDG_RUNTIME_DIR -i dash -I channel:nixos-23.11-small -p dash cacert curl flock
 set -eu
 
 url="$1"

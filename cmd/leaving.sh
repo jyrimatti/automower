@@ -1,5 +1,5 @@
 #! /usr/bin/env nix-shell
-#! nix-shell -i dash --pure -I channel:nixos-23.11-small -p curl cacert flock findutils dash jq 
+#! nix-shell -i dash --pure --keep LD_LIBRARY_PATH -I channel:nixos-23.11-small -p curl cacert flock findutils dash jq 
 
 val="$(dash ./data.sh | jq -r '.attributes.mower.activity')"
 if [ "$val" = "LEAVING" ]; then
