@@ -1,3 +1,7 @@
+bridge = "automower"
+port = 12316
+username = "AA:AA:AA:AA:AA:16"
+
 [[services]]
 type = "AccessoryInformation"
 
