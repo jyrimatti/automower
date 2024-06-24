@@ -21,7 +21,6 @@ After=syslog.target network.target
 Type=oneshot
 ExecStart=/bin/sh -c '. /etc/profile.d/nix.sh; LD_LIBRARY_PATH="$(find /nix/store -maxdepth 1 -name '*nss-mdns*' -type d)/lib" PATH=$HOME/.local/nix-override:\$PATH $scriptdir/${service}_collect2db.sh'
 
-PrivateTmp=true
 ProtectSystem=strict
 ProtectHome=read-only
 ProtectKernelTunables=true
