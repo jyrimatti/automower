@@ -1,5 +1,6 @@
 #! /usr/bin/env nix-shell
-#! nix-shell --pure -i dash -I channel:nixos-24.11-small -p rsync sqlite openssh dash
+#! nix-shell --pure
+#! nix-shell -i dash -I channel:nixos-24.11-small -p rsync sqlite openssh dash
 set -eu
 
 remoteuser=$1

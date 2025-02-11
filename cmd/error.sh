@@ -1,7 +1,8 @@
 #! /usr/bin/env nix-shell
-#! nix-shell -i dash --pure --keep CREDENTIALS_DIRECTORY --keep XDG_RUNTIME_DIR -I channel:nixos-24.11-small -p curl cacert flock findutils dash jq 
+#! nix-shell --pure --keep CREDENTIALS_DIRECTORY --keep BKT_SCOPE --keep BKT_CACHE_DIR
+#! nix-shell -i dash -I channel:nixos-24.11-small -p curl cacert flock findutils dash jq bkt
 
-data="$(dash ./data.sh)"
+data="$(dash ./automower_get.sh)"
 echo "$data"\
   | jq -r '[.attributes.mower.state, .attributes.metadata.connected] | @tsv'\
   | { 
