@@ -23,6 +23,9 @@ flock "$lock" \
             | jq -r '[.expires_in,.access_token] | @tsv' \
             | {
                 read -r expires_in access_token
+                if [ -z "$access_token" ]; then
+                    exit 1
+                fi
                 echo "$expires_in" > "$lock"
                 echo "$access_token"
             }
